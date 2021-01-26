@@ -1,0 +1,37 @@
+NYSERDA Offshore Case Study
+===========================
+Restart from an 11-month simulation performed by Optis et al 2021
+("New methods to improve the vertical extrapolation of near-surface offshore wind speeds,"
+submitted to Wind Energy Science)
+
+Required symlinks
+-----------------
+
+- executables:
+ln -sf $WRFDIR/run/[aBbCcEGgHikLmopRStUV]* .
+ln -sf $WRFDIR/run/real.exe .
+ln -sf $WRFDIR/run/wrf.exe .
+
+- real data:
+cp -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/met_data/2020_05/geo_em.d??.nc .
+cp -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/met_data/2020_05/met_em.d??.2020-05-15_*.nc .
+cp -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/met_data/2020_05/met_em.d??.2020-05-16_00:00:00.nc .
+
+- simulation restarts:
+cp -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/WRF1/2020/05/wrfrst_d??_2020-05-15_12:00:00* .
+
+
+Unused real.exe outputs from Mike
+---------------------------------
+
+- initial/boundary condiitons
+ln -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/WRF1/2020/05/wrfinput_d01
+ln -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/WRF1/2020/05/wrfbdy_d01
+
+- lower boundary data (w/ sst_update=1):
+ln -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/WRF1/2020/05/wrflowinp_d01
+ln -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/WRF1/2020/05/wrflowinp_d02
+
+- spectral nudging:
+ln -s /scratch/moptis/wrf_runs/prod-midatlantic/WPS1/WRF1/2020/05/wrffdda_d01
+
